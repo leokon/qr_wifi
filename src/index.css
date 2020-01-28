@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: "Roboto", sans-serif;
 }
 
 .wrapper {
@@ -7,9 +8,6 @@ body {
     flex-direction: row;
     align-items: center;
     height: 100vh;
-
-    background-color: #02296A;
-    color: #FCFDFC;
 }
 
 .branding {
@@ -21,9 +19,9 @@ body {
     box-sizing: border-box;
     padding: 30px;
     padding-left: 5%;
-    padding-right: 6%;
+    padding-right: 8%;
 
-    background-color: #02296A;
+    background-color: #003182;
     color: #FCFDFC;
 }
 
@@ -35,19 +33,54 @@ body {
 
     .branding-name {
         font-family: "Raleway", sans-serif;
-        font-size: 5rem;
-        padding-top: 8%;
+        font-size: 5.5rem;
+        padding-top: 10%;
     }
 
     .branding-text {
         font-size: 2.5rem;
-        padding-bottom: 35%;
+        padding-bottom: 50%;
     }
 
-.form {
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     width: 60%;
     height: 100vh;
+    box-sizing: border-box;
+    padding: 4% 12%;
 
     background-color: #FFFFFF;
     color: black;
 }
+
+    .form-wrapper form {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        min-width: 300px;
+    }
+
+    .form-wrapper input, select {
+        padding: 18px 16px;
+        border-radius: 5px;
+        border-color: transparent;
+        box-shadow: none;
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+        background-color: #F5F3F4;
+    }
+
+    .form-wrapper .submit {
+        background-color: #003182;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+
+    .form-header {
+        font-size: 2.5rem;
+        font-weight: bold;
+        padding-bottom: 30px;
+    }
