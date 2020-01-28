@@ -20,7 +20,7 @@ body {
     box-sizing: border-box;
     padding: 30px;
     padding-left: 5%;
-    padding-right: 8%;
+    padding-right: 5%;
 
     background-color: #003182;
     color: #FCFDFC;
@@ -39,9 +39,14 @@ body {
         padding-bottom: 80px;
     }
 
+    .branding-name a {
+        text-decoration: none;
+        color: inherit;
+    }
+
     .branding-text {
         font-size: 2.5rem;
-        padding-bottom: 50%;
+        padding-bottom: 48%;
     }
 
 .form-wrapper {
@@ -102,7 +107,7 @@ body {
 .canvas-container {
     display: none;
     justify-content: center;
-    padding-bottom: 50%;
+    padding-bottom: 48%;
 }
 
     .canvas-container canvas {
@@ -110,7 +115,6 @@ body {
 
 /* React CSSTransition animation classes */
 .fade-enter {
-    /*display: block;*/
     display: flex;
     opacity: 0;
 }
@@ -121,7 +125,6 @@ body {
 }
 
 .fade-enter-done {
-    /*display: block;*/
     display: flex;
 }
 
