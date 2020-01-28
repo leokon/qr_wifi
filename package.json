@@ -15,8 +15,8 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --no-source-maps --no-content-hash --public-url ./",
-    "clean": "rm dist/*"
+    "build": "parcel build src/index.html --no-source-maps --out-dir docs --public-url ./",
+    "clean": "rm docs/*"
   },
   "author": "Leo Kontogiorgis",
   "license": "ISC"
