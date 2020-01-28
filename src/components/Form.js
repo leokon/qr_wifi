@@ -1,5 +1,6 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
+import QRCode from "qrcode";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
 
@@ -24,10 +25,31 @@ class Form extends React.Component {
     }
 
     handleSubmit(event) {
-        console.log("SSID: " + this.state.ssid);
-        console.log("password: " + this.state.password);
-        console.log("encryption: " + this.state.encryption);
         event.preventDefault();
+
+        // Build QR code wifi connection string and generate QR code image
+            // https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11
+        let encryptionString = "";
+        if (this.state.encryption === "WPA/WPA2") {
+            encryptionString = "WPA";
+        } else if (this.state.encryption === "WEP") {
+            encryptionString = "WEP";
+        }
+        let ssidString = this.state.ssid.replace(/[\\"';:,]/g, "\\$&");
+        let passwordString = this.state.password.replace(/[\\"';:,]/g, "\\$&");
+
+        let qrString = "WIFI:T:" + encryptionString + ";S:" + ssidString;
+        if (passwordString.length > 0) {
+            qrString += ";P:" + passwordString + ";;";
+        } else {
+            qrString += ";;";
+        }
+
+        console.log(qrString);
+        this.props.handleShowQR(true);
+        QRCode.toCanvas(document.getElementById("qr-canvas"), qrString, {
+            width: 256
+        });
     }
 
     render () {
@@ -37,7 +59,7 @@ class Form extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-wrapper">
-                        <input type="text" name="ssid" placeholder="Network SSID" value={this.state.ssid} onChange={this.handleChange} />
+                        <input type="text" name="ssid" placeholder="Network SSID" value={this.state.ssid} onChange={this.handleChange} required maxLength="32" />
                         <FontAwesomeIcon icon={faQuestionCircle} data-tip="The name you use to connect to your wifi network." />
                     </div>
                     <div className="input-wrapper">
