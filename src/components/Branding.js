@@ -6,7 +6,7 @@ class Branding extends React.Component {
         return (
             <div className="branding">
                 <div className="branding-name">
-                    <a href="/">qr_wifi</a>
+                    <a href="./">qr_wifi</a>
                 </div>
 
                 <CSSTransition in={!this.props.showQR} timeout={1200} classNames="fade">
