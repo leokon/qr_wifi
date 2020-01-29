@@ -3,6 +3,7 @@ import ReactTooltip from "react-tooltip";
 import QRCode from "qrcode";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faQuestionCircle, faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
+import {parseQRCode} from "../parser";
 
 class Form extends React.Component {
     constructor(props) {
@@ -34,22 +35,7 @@ class Form extends React.Component {
         event.preventDefault();
 
         // Build QR code wifi connection string and generate QR code image
-            // https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11
-        let encryptionString = "";
-        if (this.state.encryption === "WPA/WPA2") {
-            encryptionString = "WPA";
-        } else if (this.state.encryption === "WEP") {
-            encryptionString = "WEP";
-        }
-        let ssidString = this.state.ssid.replace(/[\\"';:,]/g, "\\$&");
-        let passwordString = this.state.password.replace(/[\\"';:,]/g, "\\$&");
-
-        let qrString = "WIFI:T:" + encryptionString + ";S:" + ssidString;
-        if (passwordString.length > 0) {
-            qrString += ";P:" + passwordString + ";;";
-        } else {
-            qrString += ";;";
-        }
+        let qrString = parseQRCode(this.state.ssid, this.state.password, this.state.encryption);
 
         // Draw to on-page canvas
         QRCode.toCanvas(document.getElementById("qr-canvas"), qrString, {
