@@ -90,7 +90,7 @@ class Form extends React.Component {
                     <input className="submit" type="submit" value="Generate" />
                 </form>
 
-                <ReactTooltip place="right" effect="solid" multiline={true} />
+                <ReactTooltip place="top" effect="solid" multiline={true} />
             </div>
         );
     }
