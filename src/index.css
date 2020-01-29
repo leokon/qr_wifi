@@ -102,6 +102,20 @@ body {
     .input-wrapper svg {
         padding-left: 10px;
         color: #003182;
+        font-size: 1.2rem;
+    }
+
+    .input-wrapper-inner {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 8px;
+        cursor: pointer;
     }
 
 .canvas-container {
