@@ -79,12 +79,12 @@ class Form extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-wrapper">
-                        <input type="text" name="ssid" placeholder="Network SSID" value={this.state.ssid} onChange={this.handleChange} required maxLength="32" />
-                        <FontAwesomeIcon icon={faQuestionCircle} data-tip="The name you use to connect to your wifi network." />
+                        <input type="text" name="ssid" placeholder="SSID" value={this.state.ssid} onChange={this.handleChange} required maxLength="32" />
+                        <FontAwesomeIcon icon={faQuestionCircle} data-tip="The name of your wifi network." />
                     </div>
                     <div className="input-wrapper">
                         <div className="input-wrapper-inner">
-                            <input type={this.state.showPassword ? "text" : "password"} name="password" placeholder="Network Password" value={this.state.password} onChange={this.handleChange} />
+                            <input type={this.state.showPassword ? "text" : "password"} name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                             {this.state.showPassword ? (
                                 <FontAwesomeIcon icon={faEyeSlash} className="password-toggle" onClick={this.toggleShowPassword} />
                             ) : (
@@ -99,7 +99,7 @@ class Form extends React.Component {
                             <option value="WEP">WEP</option>
                             <option value="None">None</option>
                         </select>
-                        <FontAwesomeIcon icon={faQuestionCircle} data-tip="The type of encryption your wifi network uses. <br /> If you're not sure, leave the default!" />
+                        <FontAwesomeIcon icon={faQuestionCircle} data-tip="The type of encryption your wifi network uses. <br /> If you're not sure, don't touch!" />
                     </div>
                     <input className="submit" type="submit" value="Generate" />
                 </form>

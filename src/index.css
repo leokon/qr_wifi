@@ -12,7 +12,6 @@ body {
 
 .branding {
     width: 40%;
-    min-width: 276px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -105,7 +104,6 @@ body {
         flex-direction: column;
         width: 100%;
         max-width: 520px;
-        min-width: 300px;
     }
 
     .form-wrapper input, select {
@@ -184,13 +182,17 @@ body {
     .form-wrapper form {
         width: 90%;
     }
-
-    .canvas-container, .branding-text {
-        padding-bottom: 65%;
-    }
 }
 
 @media screen and (max-width: 700px) {
+    .branding-name {
+        font-size: 2.3rem;
+    }
+
+    .branding-text, .form-header {
+        font-size: 1rem;
+    }
+
     .form-wrapper {
         padding: 4%;
     }
@@ -199,15 +201,29 @@ body {
         width: 100%;
     }
 
-    .canvas-container, .branding-text {
-        padding-bottom: 80%;
+    #qr-canvas {
+        height: 164px !important;
+        width: 164px !important;
+    }
+
+    .buttons {
+        width: 164px;
     }
 }
 
-@media screen and (max-width: 400px) {
-    .canvas-container, .branding-text {
-        padding-bottom: 95%;
+@media screen and (max-width: 500px) {
+    #qr-canvas {
+        height: 128px !important;
+        width: 128px !important;
     }
+
+    .buttons {
+        width: 128px;
+    }
+}
+
+.canvas-container, .branding-text {
+    padding-bottom: 30vh;
 }
 
 /* React CSSTransition animation classes */
@@ -275,4 +291,9 @@ body {
         padding-left: 20px;
         padding-right: 20px;
     }
+}
+
+#qr-canvas {
+    height: 128px;
+    width: 128px;
 }

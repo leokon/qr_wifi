@@ -12,6 +12,7 @@ class Branding extends React.Component {
                 <CSSTransition in={!this.props.showQR} timeout={1200} classNames="fade">
                     <div className="branding-text">Give anyone quick & easy wifi access with a QR code</div>
                 </CSSTransition>
+
                 <CSSTransition in={this.props.showQR} timeout={1200} classNames="fade">
                     <div className="canvas-container">
                         <canvas id="qr-canvas"></canvas>
