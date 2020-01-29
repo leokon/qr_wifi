@@ -53,6 +53,7 @@ class Form extends React.Component {
 
         this.props.handleShowQR(true);
         QRCode.toCanvas(document.getElementById("qr-canvas"), qrString, {
+            errorCorrectionLevel: "H",
             width: 256
         });
     }
