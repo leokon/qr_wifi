@@ -49,13 +49,38 @@ body {
         padding-bottom: 48%;
     }
 
+    .buttons {
+        display: flex;
+        margin-top: 10px;
+        width: 256px;
+    }
+
     .print-button {
+        flex-grow: 2;
+        padding: 10px 0;
+        margin-right: 5px;
+
         background-color: #FFFFFF;
         color: #003182;
-        padding: 10px 65px;
-        margin-top: 10px;
-        border-radius: 5px;
+        /*border-radius: 5px;*/
         border-color: transparent;
+        box-shadow: none;
+        font-size: 1.05rem;
+        cursor: pointer;
+    }
+
+    .save-button-wrapper {
+        flex-grow: 1;
+    }
+
+    .save-button {
+        width: 100%;
+        padding: 10px 0;
+
+        background-color: transparent;
+        color: #FFFFFF;
+        /*border-radius: 5px;*/
+        border: 2px solid #FFFFFF;
         box-shadow: none;
         font-size: 1.05rem;
         cursor: pointer;

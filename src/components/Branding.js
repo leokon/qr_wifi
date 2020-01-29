@@ -15,7 +15,12 @@ class Branding extends React.Component {
                 <CSSTransition in={this.props.showQR} timeout={1200} classNames="fade">
                     <div className="canvas-container">
                         <canvas id="qr-canvas"></canvas>
-                        <button className="print-button" onClick={() => window.print()}>Print</button>
+                        <div className="buttons">
+                            <button className="print-button" onClick={() => window.print()}>Print</button>
+                            <a className="save-button-wrapper" href={this.props.dataURL} download="qr_wifi.png">
+                                <button className="save-button">Save</button>
+                            </a>
+                        </div>
                     </div>
                 </CSSTransition>
             </div>

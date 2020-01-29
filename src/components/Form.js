@@ -51,14 +51,24 @@ class Form extends React.Component {
             qrString += ";;";
         }
 
-        this.props.handleUpdateQR(this.state.ssid, this.state.password, this.state.encryption);
+        // Draw to on-page canvas
         QRCode.toCanvas(document.getElementById("qr-canvas"), qrString, {
             errorCorrectionLevel: "H",
             width: 256
         });
+
+        // Draw to printable canvas
         QRCode.toCanvas(document.getElementById("qr-canvas-print"), qrString, {
             errorCorrectionLevel: "H",
             width: 512
+        });
+
+        // Generate DataURL for download as image and update parent state in callback
+        QRCode.toDataURL(qrString, {
+            errorCorrectionLevel: "H",
+            type: "image/png"
+        }, (err, url) => {
+            this.props.handleUpdateQR(this.state.ssid, this.state.password, this.state.encryption, url);
         });
     }
 

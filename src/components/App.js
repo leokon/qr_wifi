@@ -10,25 +10,27 @@ class App extends React.Component {
             showQR: false,
             ssid: "",
             password: "",
-            encryption: ""
+            encryption: "",
+            dataURL: ""
         };
 
         this.handleUpdateQR = this.handleUpdateQR.bind(this);
     }
 
-    handleUpdateQR(ssid, password, encryption) {
+    handleUpdateQR(ssid, password, encryption, dataURL) {
         this.setState({
             showQR: true,
             ssid: ssid,
             password: password,
-            encryption: encryption
+            encryption: encryption,
+            dataURL: dataURL
         });
     }
 
     render() {
         return (
             <div className="wrapper">
-                <Branding showQR={this.state.showQR} />
+                <Branding showQR={this.state.showQR} dataURL={this.state.dataURL} />
                 <Form handleUpdateQR={this.handleUpdateQR} />
                 <PrintableQR ssid={this.state.ssid} password={this.state.password} />
             </div>
